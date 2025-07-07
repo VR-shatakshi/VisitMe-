@@ -22,7 +22,7 @@ main().
 then(()=>{
     console.log("connected to db");
 })
-.catch(()=>{
+.catch((err)=>{
     console.log(err);
 });
 
@@ -45,8 +45,8 @@ const store = Mongostore.create ({
    touchAfter: 24*3600,
 });
 
-store.on ("error",()=>{
-  console.log("error occured",error);
+store.on ("error",(err)=>{
+  console.log("error occured",err);
 });
 
 const sessionOptions = {
