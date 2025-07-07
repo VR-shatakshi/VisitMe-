@@ -36,9 +36,7 @@ async function main(){
     await mongoose.connect(db);
 }
 
-app.get("/", (req, res) => {
-  res.send("Hi, I am there!");
-});
+
 
 app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"views"));
@@ -89,7 +87,9 @@ app.use((req,res,next)=>{
     res.locals.currUser = req.user;
     next();
 });
-
+app.get("/", (req, res) => {
+  res.send("Hi, I am there!");
+});
 app.use("/",users);
 app.use("/listings",listings);
 app.use("/listing",listings);
