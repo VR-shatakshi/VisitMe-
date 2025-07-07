@@ -43,8 +43,11 @@ app.set("views",path.join(__dirname,"views"));
 app.use(express.urlencoded({extended:true }));
 app.use(methodOverride("_method"));
 app.engine("ejs",ejsMate);
-app.use(express.static(path.join(__dirname,"public")));
+app.use(express.static(path.join(__dirname,"public"),{ index: false }));
 
+app.get("/", (req, res) => {
+  res.send("Hi, I am there!");
+});
 
 const store = MongoStore.create({
    mongoUrl:db,
@@ -87,9 +90,7 @@ app.use((req,res,next)=>{
     res.locals.currUser = req.user;
     next();
 });
-app.get("/", (req, res) => {
-  res.send("Hi, I am there!");
-});
+
 app.use("/",users);
 app.use("/listings",listings);
 app.use("/listing",listings);
