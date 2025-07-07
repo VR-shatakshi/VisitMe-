@@ -1,18 +1,24 @@
+require('dotenv').config();
+if (process.env.NODE_ENV !=" production"){
+   console.log(process.env);
+}
+
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const path = require("path");
-const MONGO_URL ='mongodb://127.0.0.1:27017/VisitMe';
+
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
 const Joi = require("joi");
 const session = require("express-session");
-const Mongostore = require("connect-mongo");
+const MongoStore = require("connect-mongo");
 const flash = require("connect-flash");
 const Passport = require("passport");
 const LocalStraegy = require("passport-local");
 const User = require("./models/user.js");
 
+const db = process.env.ATLAS_URL ;
 
 const listings = require("./router/listings.js");
 const reviews = require("./router/reviews.js");
@@ -22,12 +28,12 @@ main().
 then(()=>{
     console.log("connected to db");
 })
-.catch(()=>{
+.catch((err)=>{
     console.log(err);
 });
 
 async function main(){
-    await mongoose.connect(MONGO_URL);
+    await mongoose.connect(db);
 }
 
 app.set("view engine","ejs");
@@ -37,15 +43,16 @@ app.use(methodOverride("_method"));
 app.engine("ejs",ejsMate);
 app.use(express.static(path.join(__dirname,"/public")));
 
-const store = Mongostore.create ({
-   mongoUrl:MONGO_URL,
+
+const store = MongoStore.create({
+   mongoUrl:db,
    crypto:{
     secret:"mysecretcode",
    },
    touchAfter: 24*3600,
 });
 
-store.on ("error",()=>{
+store.on ("error",(error)=>{
   console.log("error occured",error);
 });
 
