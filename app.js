@@ -109,9 +109,9 @@ app.use("/listings/:id/reviews",reviews);
 
 
 
-app.all("*splat",(req,res,next)=>{
+/*app.all("*splat",(req,res,next)=>{
     next(new ExpressError(404,"Page not Found "));
-});
+});*/
 
 
 
