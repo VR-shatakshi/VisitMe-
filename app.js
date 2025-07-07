@@ -7,6 +7,7 @@ const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
 const Joi = require("joi");
 const session = require("express-session");
+const Mongostore = require("connect-mongo");
 const flash = require("connect-flash");
 const Passport = require("passport");
 const LocalStraegy = require("passport-local");
@@ -36,9 +37,20 @@ app.use(methodOverride("_method"));
 app.engine("ejs",ejsMate);
 app.use(express.static(path.join(__dirname,"/public")));
 
+const store = Mongostore.create ({
+   mongoUrl:MONGO_URL,
+   crypto:{
+    secret:"mysecretcode",
+   },
+   touchAfter: 24*3600,
+});
 
+store.on ("error",()=>{
+  console.log("error occured",error);
+});
 
 const sessionOptions = {
+  store ,
   secret :"mysecretcode",
   resave :false , 
   saveUninitialized:true,
