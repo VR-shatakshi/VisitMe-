@@ -36,12 +36,16 @@ async function main(){
     await mongoose.connect(db);
 }
 
+app.get("/", (req, res) => {
+  res.send("Hi, I am there!");
+});
+
 app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"views"));
 app.use(express.urlencoded({extended:true }));
 app.use(methodOverride("_method"));
 app.engine("ejs",ejsMate);
-app.use(express.static(path.join(__dirname,"/public")));
+app.use(express.static(path.join(__dirname,"public")));
 
 
 const store = MongoStore.create({
@@ -93,13 +97,11 @@ app.use("/listings/:id/reviews",reviews);
 
 
 
-app.get("/", (req, res) => {
-  res.send("Hi, I am there!");
-});
 
-/*app.all("*",(req,res,next)=>{
+
+app.all("*",(req,res,next)=>{
     next(new ExpressError(404,"Page not Found "));
-});*/
+});
 
 
 
