@@ -1,0 +1,244 @@
+/* General page styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 2rem;
+    background-color:#81f499 !important;
+    color: #333;
+}
+
+h1 {
+
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+/* Grid container */
+/*.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+}*/
+.col{
+    margin-bottom: 2rem;
+    border: 0.5rem solid  #e4115b;
+}
+/* Listing card styling */
+.card {
+    position: relative;
+    width: 100%;
+    max-width: 22rem;
+    border-radius:2rem !important;   /*0.75rem*/
+    overflow: hidden;
+    border: 0.5rem solid  #e4115b;
+    box-shadow: 0 4px 8px rgba(192, 150, 150, 0.1);
+    background-color: #ffffff;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border: 0.5rem solid  #e4115b;
+}
+
+/* Image styling */
+.card-img-top {
+    width: 100%;
+    height: 20rem;
+    object-fit: cover;
+}
+
+/* Overlay in case you want to add any text or filter later */
+.card-img-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+/* Text inside the card */
+.card-body {
+    padding: 1rem;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #555;
+}
+
+.card-text b {
+    font-size: 1.1rem;
+    color: #000;
+}
+
+/* Link styling */
+.listing-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Responsive adjustments if needed */
+@media (max-width: 768px) {
+    .card {
+        max-width: 100%;
+    }
+}
+/* Footer container */
+.footer {
+    background-color: #f1f1f1;
+    padding: 2rem;
+    text-align: center;
+    border-top: 2px solid #ccc;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Header message with hearts */
+.footer .card-header {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #444;
+}
+
+/* Title and body text */
+.footer .card-body {
+    margin-bottom: 1rem;
+}
+
+.footer .card-title {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: #222;
+}
+
+/* Buttons (social links) */
+.footer .btn {
+    display: inline-block;
+    margin: 0.3rem 0.6rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.95rem;
+    border: none;
+    border-radius: 0.4rem;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    text-decoration: none;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.footer .btn:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-2px);
+}
+
+/* Footer bottom links */
+.footer .card-footer {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.footer .card-footer a {
+    margin: 0 0.8rem;
+    color: #666;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer .card-footer a:hover {
+    color: #000;
+}
+
+/* Navbar background and shadow */
+.navbar {
+    background-color: #ffffff !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Brand styling */
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #e4115b !important;
+    display: flex;
+    align-items: center;
+}
+
+/* Navbar links */
+.navbar-nav .nav-link {
+    color: #333 !important;
+    font-weight: 500;
+    padding: 0.6rem 1rem;
+    transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+/* Hover effect for links */
+.navbar-nav .nav-link:hover {
+    color: #e4115b !important;
+    background-color: #f8f9fa;
+    border-radius: 0.3rem;
+}
+
+/* Active link style (optional) */
+.navbar-nav .nav-link.active {
+    color: #e4115b !important;
+    font-weight: bold;
+}
+
+/* Toggler (hamburger icon) styling */
+.navbar-toggler {
+    border: none;
+    outline: none;
+}
+
+/* Toggler icon */
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255, 105, 180, 1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* Responsive font scaling */
+@media (max-width: 768px) {
+    .navbar-nav .nav-link {
+        font-size: 1rem;
+        padding: 0.8rem;
+    }
+
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+}
+
+
+.btns {
+    display: flex;
+    gap:2rem ;
+    margin-top: 2rem ;
+}
+
+.add-btn {
+ background-color: #e4115b !important;
+ margin-bottom: 1rem !important;
+}
+.review-box{
+   
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    height: 25rem !important;
+}
+.main {
+    border:0.5rem solid #e4115b !important ;
+}
+
+.listing-card {
+    height: 12rem !important ;
+    width: 20rem !important ;
+    border: 0.75rem solid white ;
+}
+
+
+
+
